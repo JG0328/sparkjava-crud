@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class EstudianteServicio {
     private static EstudianteServicio estudianteServicio;
 
-    private ArrayList<Estudiante> misEstudiantes;
+    private ArrayList<Estudiante> misEstudiantes = new ArrayList<Estudiante>();
 
     private EstudianteServicio() {
 
@@ -17,10 +17,6 @@ public class EstudianteServicio {
         if (estudianteServicio == null)
             estudianteServicio = new EstudianteServicio();
         return estudianteServicio;
-    }
-
-    public void iniciarEstudiantes() {
-        misEstudiantes = new ArrayList<Estudiante>();
     }
 
     public void crearEstudiante(int matricula, String nombre, String apellido, String telefono) {
@@ -48,5 +44,13 @@ public class EstudianteServicio {
         if (estudiante != null) {
             misEstudiantes.remove(estudiante);
         }
+    }
+
+    public ArrayList<Estudiante> getMisEstudiantes() {
+        return misEstudiantes;
+    }
+
+    public void setMisEstudiantes(ArrayList<Estudiante> misEstudiantes) {
+        this.misEstudiantes = misEstudiantes;
     }
 }

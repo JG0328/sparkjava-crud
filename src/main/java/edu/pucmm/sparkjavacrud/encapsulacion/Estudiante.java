@@ -6,6 +6,22 @@ public class Estudiante {
     private String apellido;
     private String telefono;
 
+    public Estudiante() {
+
+    }
+
+    public Estudiante(int matricula, String nombre, String apellido, String telefono) {
+        this.matricula = matricula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Matricula: %d, Nombre: %s, Apellido: %s, Telefono: %s", matricula, nombre, apellido, telefono);
+    }
+
     public int getMatricula() {
         return matricula;
     }

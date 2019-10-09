@@ -43,13 +43,21 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Telefono</th>
+                    <th>Acciones</th>
                 </tr>
                 <#list estudiantes as estudiante>
                     <tr>
-                        <td>${estudiante.matricula}</td>
-                        <td>${estudiante.nombre}</td>
-                        <td>${estudiante.apellido}</td>
-                        <td>${estudiante.telefono}</td>
+                        <td>${estudiante.getMatricula()}</td>
+                        <td>${estudiante.getNombre()}</td>
+                        <td>${estudiante.getApellido()}</td>
+                        <td>${estudiante.getTelefono()}</td>
+                        <td>
+                            <a href="estudiantes/${estudiante.getMatricula()}" class="btn btn-primary">Ver</a>
+                            <a href="estudiantes/editar/${estudiante.getMatricula()}"
+                               class="btn btn-primary">Actualizar</a>
+                            <a href="estudiantes/eliminar/${estudiante.getMatricula()}"
+                               class="btn btn-danger">Eliminar</a>
+                        </td>
                     </tr>
                 </#list>
             </table>

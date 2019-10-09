@@ -24,6 +24,13 @@ public class EstudianteServicio {
         misEstudiantes.add(estudiante);
     }
 
+    public void ActualizarEstudiante(Estudiante estudiante, String matricula, String nombre, String apellido, String telefono) {
+        estudiante.setMatricula(matricula);
+        estudiante.setNombre(nombre);
+        estudiante.setApellido(apellido);
+        estudiante.setTelefono(telefono);
+    }
+
     public Estudiante obtenerEstudiante(String matricula) {
         Estudiante estudiante = null;
         boolean encontrado = false;

@@ -19,24 +19,26 @@ public class EstudianteServicio {
         return estudianteServicio;
     }
 
-    public void crearEstudiante(String matricula, String nombre, String apellido, String telefono) {
+    public Estudiante crearEstudiante(String matricula, String nombre, String apellido, String telefono) {
         Estudiante estudiante = new Estudiante(matricula, nombre, apellido, telefono);
         misEstudiantes.add(estudiante);
+        return estudiante;
     }
 
-    public void ActualizarEstudiante(Estudiante estudiante, String matricula, String nombre, String apellido, String telefono) {
+    public void actualizarEstudiante(int idEstudiante, String matricula, String nombre, String apellido, String telefono) {
+        Estudiante estudiante = obtenerEstudiante(idEstudiante);
         estudiante.setMatricula(matricula);
         estudiante.setNombre(nombre);
         estudiante.setApellido(apellido);
         estudiante.setTelefono(telefono);
     }
 
-    public Estudiante obtenerEstudiante(String matricula) {
+    public Estudiante obtenerEstudiante(int idEstudiante) {
         Estudiante estudiante = null;
         boolean encontrado = false;
 
         for (Estudiante est : misEstudiantes) {
-            if (est.getMatricula().equalsIgnoreCase(matricula) && !encontrado) {
+            if (est.getIdEstudiante() == idEstudiante && !encontrado) {
                 estudiante = est;
                 encontrado = true;
             }
@@ -45,8 +47,8 @@ public class EstudianteServicio {
         return estudiante;
     }
 
-    public void eliminarEstudiante(String matricula) {
-        Estudiante estudiante = obtenerEstudiante(matricula);
+    public void eliminarEstudiante(int idEstudiante) {
+        Estudiante estudiante = obtenerEstudiante(idEstudiante);
 
         if (estudiante != null) {
             misEstudiantes.remove(estudiante);

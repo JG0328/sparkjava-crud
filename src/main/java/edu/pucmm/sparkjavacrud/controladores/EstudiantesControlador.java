@@ -21,27 +21,36 @@ public class EstudiantesControlador {
         });
 
         post("/nuevo", (request, response) -> {
-            EstudianteServicio.getInstancia().crearEstudiante(request.queryParams("matricula"),
+            Estudiante estudiante = EstudianteServicio.getInstancia().crearEstudiante(request.queryParams("matricula"),
                     request.queryParams("nombre"), request.queryParams("apellido"), request.queryParams("telefono"));
-            response.redirect("/estudiantes/" + request.queryParams("matricula"));
+            response.redirect("/estudiantes/" + estudiante.getIdEstudiante());
             return "";
         });
 
-        get("estudiantes/:matricula", (request, response) -> {
-            Estudiante estudiante = EstudianteServicio.getInstancia().obtenerEstudiante(request.params("matricula"));
+        get("estudiantes/:id", (request, response) -> {
+            Estudiante estudiante = EstudianteServicio.getInstancia().obtenerEstudiante(new Integer(request.params("id")));
             Map<String, Object> obj = new HashMap<>();
             obj.put("estudiante", estudiante);
             return TemplatesControlador.renderFreemarker(obj, "estudiantesDetail.ftl");
         });
 
-        get("estudiantes/eliminar/:matricula", (request, response) -> {
-            EstudianteServicio.getInstancia().eliminarEstudiante(request.params("matricula"));
+        get("estudiantes/eliminar/:id", (request, response) -> {
+            EstudianteServicio.getInstancia().eliminarEstudiante(new Integer(request.params("id")));
             response.redirect("/");
             return "";
         });
 
-        get("estudiantes/editar/:matricula", (request, response) -> {
-            return TemplatesControlador.renderFreemarker(null, "estudiantesEdit.ftl");
+        get("estudiantes/editar/:id", (request, response) -> {
+            Estudiante estudiante = EstudianteServicio.getInstancia().obtenerEstudiante(new Integer(request.params("id")));
+            Map<String, Object> obj = new HashMap<>();
+            obj.put("estudiante", estudiante);
+            return TemplatesControlador.renderFreemarker(obj, "estudiantesEdit.ftl");
+        });
+
+        post("estudiantes/actualizar/:id", (request, response) -> {
+            EstudianteServicio.getInstancia().actualizarEstudiante(new Integer(request.params("id")), request.queryParams("matricula"), request.queryParams("nombre"), request.queryParams("apellido"), request.queryParams("telefono"));
+            response.redirect("/estudiantes/" + request.params("id"));
+            return "";
         });
     }
 }

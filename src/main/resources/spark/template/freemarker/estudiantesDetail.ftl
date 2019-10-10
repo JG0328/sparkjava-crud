@@ -51,8 +51,8 @@
     <div class="row">
         <div class="col-md-12">
             <a href="/nuevo" class="btn btn-success">Nuevo Estudiante</a>
-            <a href="estudiantes/editar/${estudiante.matricula}" class="btn btn-secondary">Editar</a>
-            <a href="estudiantes/eliminar/${estudiante.matricula}" class="btn btn-danger">Eliminar</a>
+            <a href="/estudiantes/editar/${estudiante.idEstudiante}" class="btn btn-secondary">Editar</a>
+            <a href="/estudiantes/eliminar/${estudiante.idEstudiante}" class="btn btn-danger">Eliminar</a>
         </div>
     </div>
 </div>

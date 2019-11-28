@@ -52,10 +52,10 @@
                         <td>${estudiante.apellido}</td>
                         <td>${estudiante.telefono}</td>
                         <td>
-                            <a href="estudiantes/${estudiante.idEstudiante}" class="btn btn-primary">Ver</a>
-                            <a href="estudiantes/editar/${estudiante.idEstudiante}"
+                            <a href="/estudiantes/${estudiante.idEstudiante}" class="btn btn-primary">Ver</a>
+                            <a href="/estudiantes/editar/${estudiante.idEstudiante}"
                                class="btn btn-primary">Editar</a>
-                            <a href="estudiantes/eliminar/${estudiante.idEstudiante}"
+                            <a href="/estudiantes/eliminar/${estudiante.idEstudiante}"
                                class="btn btn-danger">Eliminar</a>
                         </td>
                     </tr>

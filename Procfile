@@ -1,0 +1,1 @@
+web: sh build/install/sparkjava-crud/bin/sparkjava-crud
